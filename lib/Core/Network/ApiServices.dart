@@ -1,11 +1,11 @@
 import 'dart:developer';
 import 'package:dio/dio.dart';
 
-class YallaNowServices {
+class ApiServices {
   final String _baseUrl = 'https://afackapi.runasp.net/api/';
 
   final Dio _dio;
-  YallaNowServices(this._dio);
+  ApiServices(this._dio);
 
   Future<dynamic> get({required String endPoint, String? token}) async {
     var response = await _dio.get('$_baseUrl$endPoint',
