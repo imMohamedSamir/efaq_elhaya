@@ -10,7 +10,8 @@ class ApiServices {
   Future<dynamic> get({required String endPoint, String? token}) async {
     var response = await _dio.get('$_baseUrl$endPoint',
         options: Options(headers: {
-          'accept': '*/*',
+          ' Content-Type': 'application/json',
+          'accept': 'text/plain',
           'Authorization': token == null ? null : 'Bearer $token'
         }));
     return response.data;

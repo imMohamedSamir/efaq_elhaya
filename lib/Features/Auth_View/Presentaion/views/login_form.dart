@@ -36,7 +36,7 @@ class LoginForm extends StatelessWidget {
             CustomTextField(
               hintText: LocaleKeys.EmailHint.tr(),
               keyboardType: TextInputType.emailAddress,
-              validator: (p0) => Validation.email(value: p0),
+              validator: Validation.email,
               onSaved: (p0) {
                 cubit.email = p0!.trim();
               },
@@ -61,7 +61,7 @@ class LoginForm extends StatelessWidget {
               ],
             ),
             Gap(30.h),
-            LoginBtnBuilder()
+            const LoginBtnBuilder()
           ],
         ),
       ),

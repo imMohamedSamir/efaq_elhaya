@@ -26,7 +26,7 @@ class RegisterationForm extends StatelessWidget {
             hintText: LocaleKeys.FirstName.tr(),
             keyboardType: TextInputType.name,
             textInputAction: TextInputAction.next,
-            validator: (p0) => Validation.firstName(value: p0),
+            validator: Validation.firstName,
             onSaved: (p0) {
               cubit.model.firstName = p0!.trim();
             },
@@ -36,7 +36,7 @@ class RegisterationForm extends StatelessWidget {
             hintText: LocaleKeys.LastName.tr(),
             keyboardType: TextInputType.name,
             textInputAction: TextInputAction.next,
-            validator: (p0) => Validation.lastName(value: p0),
+            validator: Validation.lastName,
             onSaved: (p0) {
               cubit.model.lastName = p0!.trim();
             },
@@ -46,7 +46,7 @@ class RegisterationForm extends StatelessWidget {
             hintText: LocaleKeys.Email.tr(),
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
-            validator: (p0) => Validation.email(value: p0),
+            validator: Validation.email,
             onSaved: (p0) {
               cubit.model.email = p0!.trim();
             },
@@ -63,7 +63,7 @@ class RegisterationForm extends StatelessWidget {
             hintText: LocaleKeys.PhoneNumber.tr(),
             keyboardType: TextInputType.number,
             textInputAction: TextInputAction.done,
-            validator: (p0) => Validation.phoneNumber(value: p0),
+            validator: Validation.phoneNumber,
             onSaved: (p0) {
               cubit.model.phoneNumber = p0!.trim();
             },
@@ -75,7 +75,7 @@ class RegisterationForm extends StatelessWidget {
             },
           ),
           Gap(24.h),
-          RegisterationBtnBuilder()
+          const RegisterationBtnBuilder()
         ],
       ),
     );

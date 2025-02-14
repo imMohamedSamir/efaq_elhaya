@@ -12,7 +12,7 @@ class RegisterationView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => RegisterationCubit(getIt.get<AuthRepoImpl>()),
-      child: Scaffold(
+      child: const Scaffold(
         body: RegisterationBody(),
       ),
     );

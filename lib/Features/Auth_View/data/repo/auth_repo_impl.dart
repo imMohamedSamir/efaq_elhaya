@@ -27,6 +27,8 @@ class AuthRepoImpl implements AuthRepo {
       log(e.toString());
 
       if (e is DioException) {
+        log(e.response.toString());
+
         return left(ServerFailure(e.response.toString()));
       }
       return left(ServerFailure(e.toString()));

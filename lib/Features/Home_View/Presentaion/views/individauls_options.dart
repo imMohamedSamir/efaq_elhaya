@@ -3,31 +3,35 @@ import 'package:efaq_elhaya/Core/routing/NavigationMethod.dart';
 import 'package:efaq_elhaya/Core/theming/color_manager.dart';
 import 'package:efaq_elhaya/Core/theming/text_styles.dart';
 import 'package:efaq_elhaya/Features/Home_View/data/models/home_option_model.dart';
+import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/new_indv_form_view.dart';
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HomeOptions extends StatelessWidget {
-  const HomeOptions({super.key});
+class IndividaulsOptions extends StatelessWidget {
+  const IndividaulsOptions({super.key});
+
   static List<HomeOptionModel> options = [
     HomeOptionModel(
-        title: LocaleKeys.createFamilyForm.tr(),
+        title: LocaleKeys.createIndividualForm.tr(),
         icon: Icons.post_add_rounded,
-        route: SizedBox()),
+        route: const NewIndvFormView()),
     HomeOptionModel(
         title: LocaleKeys.pendingForms.tr(),
         icon: Icons.pending_actions_rounded,
-        route: SizedBox()),
+        route: const SizedBox()),
     HomeOptionModel(
-        title: LocaleKeys.phoneForm.tr(), icon: Icons.phone, route: SizedBox()),
+        title: LocaleKeys.phoneForm.tr(),
+        icon: Icons.phone,
+        route: const SizedBox()),
     HomeOptionModel(
-        title: LocaleKeys.shareFamilyForm.tr(),
+        title: LocaleKeys.shareIndividualForm.tr(),
         icon: Icons.share,
-        route: SizedBox()),
+        route: const SizedBox()),
     HomeOptionModel(
         title: LocaleKeys.SubmitStoredForm.tr(),
         icon: Icons.send_rounded,
-        route: SizedBox()),
+        route: const SizedBox()),
   ];
   @override
   Widget build(BuildContext context) {
@@ -43,7 +47,7 @@ class HomeOptions extends StatelessWidget {
             iconColor: Colors.white,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
-                side: BorderSide(color: ColorManager.primary)),
+                side: const BorderSide(color: ColorManager.primary)),
             titleAlignment: ListTileTitleAlignment.center,
             trailing: Icon(options[index].icon, size: 30.sp),
             title: Text(

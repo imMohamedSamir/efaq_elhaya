@@ -3,6 +3,7 @@ import 'package:efaq_elhaya/Features/Auth_View/Presentaion/views/login_form.dart
 import 'package:efaq_elhaya/Features/Auth_View/Presentaion/views/registeration_question.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -14,12 +15,15 @@ class LoginViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Gap(30.h),
-          Image.asset(Assets.imagesLoginImg),
-          Gap(16.h),
-          LoginForm(),
+          Gap(100.h),
+          Center(
+              child: AspectRatio(
+                  aspectRatio: 4.5,
+                  child: SvgPicture.asset(Assets.imagesAfaqElhaya))),
           Gap(60.h),
-          RegisterationQuestion(),
+          const LoginForm(),
+          Gap(60.h),
+          const RegisterationQuestion(),
         ],
       ),
     );

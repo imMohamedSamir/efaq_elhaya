@@ -16,11 +16,11 @@ void main() async {
 
   runApp(
     EasyLocalization(
-        startLocale: Locale(kArabic),
-        assetLoader: CodegenLoader(),
-        supportedLocales: [Locale(kArabic), Locale(kEnglish)],
+        startLocale: const Locale(kArabic),
+        assetLoader: const CodegenLoader(),
+        supportedLocales: const [Locale(kArabic), Locale(kEnglish)],
         path: kTranslationPath,
-        fallbackLocale: Locale(kArabic),
-        child: EfaqApp()),
+        fallbackLocale: const Locale(kArabic),
+        child: const EfaqApp()),
   );
 }

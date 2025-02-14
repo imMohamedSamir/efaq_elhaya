@@ -14,7 +14,7 @@ class RegisterationBtnBuilder extends StatelessWidget {
     return BlocBuilder<RegisterationCubit, RegisterationState>(
       builder: (context, state) {
         if (state is RegisterationLoading) {
-          return Center(
+          return const Center(
               child: CircularProgressIndicator(color: ColorManager.primary));
         }
         return CustomButton(

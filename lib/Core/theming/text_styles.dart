@@ -45,10 +45,22 @@ class AppTextStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeight.bold,
   );
-  static TextStyle bold = TextStyle(
+  static TextStyle bold16 = TextStyle(
+    color: ColorManager.primary,
+    fontSize: 16.sp,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.bold,
+  );
+  static TextStyle semiBold16 = TextStyle(
+    color: ColorManager.primary,
+    fontSize: 16.sp,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w600,
+  );
+  static TextStyle semiBold18 = TextStyle(
     color: ColorManager.primary,
     fontSize: 18.sp,
     fontFamily: 'Poppins',
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w600,
   );
 }

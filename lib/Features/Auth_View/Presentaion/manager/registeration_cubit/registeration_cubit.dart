@@ -7,7 +7,6 @@ import 'package:efaq_elhaya/Features/Auth_View/data/models/registration_model.da
 import 'package:efaq_elhaya/Features/Auth_View/data/repo/auth_repo.dart';
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 part 'registeration_state.dart';
 

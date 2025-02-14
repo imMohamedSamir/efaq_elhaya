@@ -22,7 +22,8 @@ abstract class CustomToastification {
         alignment: Alignment.bottomCenter,
         autoCloseDuration: const Duration(seconds: 3),
         backgroundColor: Colors.green,
-        description: Text(content, style: AppTextStyles.bold18));
+        description: Text(content,
+            style: AppTextStyles.bold18.copyWith(color: Colors.white)));
   }
 
   static void warningDialog({required String content}) {
@@ -32,6 +33,7 @@ abstract class CustomToastification {
         alignment: Alignment.bottomCenter,
         autoCloseDuration: const Duration(seconds: 3),
         backgroundColor: Colors.yellow,
-        description: Text(content, style: AppTextStyles.bold18));
+        description: Text(content,
+            style: AppTextStyles.bold18.copyWith(color: Colors.white)));
   }
 }

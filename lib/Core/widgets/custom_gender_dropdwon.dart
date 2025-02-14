@@ -4,6 +4,7 @@ import 'package:efaq_elhaya/Core/theming/color_manager.dart';
 import 'package:efaq_elhaya/Core/theming/text_styles.dart';
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomGenderDropdwon extends StatelessWidget {
   const CustomGenderDropdwon({super.key, this.onSaved});
@@ -13,13 +14,14 @@ class CustomGenderDropdwon extends StatelessWidget {
     return DropdownButtonFormField<String>(
         borderRadius: BorderRadius.circular(8),
         hint: Text(LocaleKeys.gender.tr(), style: AppTextStyles.medium16),
-        validator: (value) => Validation.gender(value: value),
+        validator: Validation.gender,
         onSaved: onSaved,
         onTap: () {},
+        menuMaxHeight: 200.h,
         decoration: InputDecoration(
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: ColorManager.primary)),
+              borderSide: const BorderSide(color: ColorManager.primary)),
         ),
         onChanged: (value) {},
         items: [

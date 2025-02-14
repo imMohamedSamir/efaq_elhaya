@@ -16,7 +16,7 @@ class RegisterationQuestion extends StatelessWidget {
       child: InkWell(
         onTap: () {
           NavigateToPage.slideFromLeft(
-              context: context, page: RegisterationView());
+              context: context, page: const RegisterationView());
         },
         borderRadius: BorderRadius.circular(16),
         child: Text(LocaleKeys.CreateAccount.tr(),

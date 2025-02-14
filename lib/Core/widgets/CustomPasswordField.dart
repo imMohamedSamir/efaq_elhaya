@@ -31,7 +31,7 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    controller.dispose();
     super.dispose();
   }
 
@@ -44,7 +44,7 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
             maxLines: 1,
             hintText: LocaleKeys.PasswordHint.tr(),
             keyboardType: TextInputType.visiblePassword,
-            validator: (p0) => Validation.password(value: p0),
+            validator: Validation.password,
             secure: _secure,
             onSaved: widget.onSaved,
             suffixIcon: IconButton(

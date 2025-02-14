@@ -28,7 +28,7 @@ class CustomButton extends StatelessWidget {
               RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   side: BorderSide(
-                      color: isborder ? Colors.white : ColorManager.secondary)),
+                      color: isborder ? Colors.white : ColorManager.primary)),
             ),
             backgroundColor: WidgetStatePropertyAll<Color>(btncolor)),
         onPressed: onPressed,

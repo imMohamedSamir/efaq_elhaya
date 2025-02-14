@@ -14,7 +14,7 @@ class LoginBtnBuilder extends StatelessWidget {
     return BlocBuilder<LoginCubit, LoginState>(
       builder: (context, state) {
         if (state is LoginLoading) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(color: ColorManager.primary),
           );
         }

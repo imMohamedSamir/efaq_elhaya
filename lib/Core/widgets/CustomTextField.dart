@@ -2,6 +2,7 @@ import 'package:efaq_elhaya/Core/Helpers/AppLang.dart';
 import 'package:efaq_elhaya/Core/theming/color_manager.dart';
 import 'package:efaq_elhaya/Core/theming/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -28,6 +29,7 @@ class CustomTextField extends StatelessWidget {
     this.isEGP = false,
     this.filled = false,
     this.onFieldSubmitted,
+    this.alwaysValidate = false,
   });
   final String? hintText;
   final TextInputType? keyboardType;
@@ -51,13 +53,16 @@ class CustomTextField extends StatelessWidget {
   final bool isEGP;
   final bool filled;
   final void Function(String)? onFieldSubmitted;
+  final bool alwaysValidate;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       textDirection: AppLang.isArabic() ? TextDirection.rtl : TextDirection.ltr,
       maxLines: maxLines,
       focusNode: focusNode,
-      autovalidateMode: autovalidateMode,
+      autovalidateMode: alwaysValidate
+          ? AutovalidateMode.onUserInteraction
+          : autovalidateMode,
       controller: controller,
       onTap: onTap,
       readOnly: readOnly ?? false,
@@ -68,7 +73,7 @@ class CustomTextField extends StatelessWidget {
       onChanged: onChanged,
       onSaved: onSaved,
       validator: validator,
-      keyboardType: keyboardType,
+      keyboardType: isEGP ? TextInputType.number : keyboardType,
       textInputAction: textInputAction,
       enabled: enabled,
       decoration: InputDecoration(
@@ -83,21 +88,22 @@ class CustomTextField extends StatelessWidget {
         prefixIcon: prefixIcon,
         label: label != null ? Text(label!) : null,
         labelStyle: AppLang.isArabic()
-            ? AppTextStyles.bold18.copyWith(color: ColorManager.secondary)
+            ? AppTextStyles.semiBold18.copyWith(color: ColorManager.secondary)
             : AppTextStyles.medium16,
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: ColorManager.grey, width: 2.5)),
+            borderSide: const BorderSide(color: ColorManager.grey, width: 2.5)),
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: Color(0xff9E9D9D))),
+            borderSide:
+                const BorderSide(color: Color.fromARGB(255, 133, 133, 133))),
         hintText: hintText,
         hintStyle:
             AppTextStyles.medium16.copyWith(color: const Color(0xff9E9D9D)),
         contentPadding: EdgeInsets.only(
-            left: AppLang.isArabic() ? 0 : 20,
-            top: 16,
-            bottom: 16,
+            left: AppLang.isArabic() ? 0 : 20.w,
+            top: 16.h,
+            bottom: 16.h,
             right: AppLang.isArabic() ? 20 : 0),
       ),
     );

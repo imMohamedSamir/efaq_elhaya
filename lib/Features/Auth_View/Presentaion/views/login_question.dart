@@ -16,7 +16,7 @@ class LoginQuestion extends StatelessWidget {
       child: InkWell(
         onTap: () {
           NavigateToPage.slideFromRightandRemove(
-              context: context, page: LoginView());
+              context: context, page: const LoginView());
         },
         borderRadius: BorderRadius.circular(16),
         child: Text(LocaleKeys.already_have_account.tr(),
