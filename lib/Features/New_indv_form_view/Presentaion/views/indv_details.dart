@@ -1,5 +1,6 @@
+import 'dart:developer';
+
 import 'package:easy_localization/easy_localization.dart';
-import 'package:efaq_elhaya/Core/Helpers/app_meta_data.dart';
 import 'package:efaq_elhaya/Core/Helpers/validation.dart';
 import 'package:efaq_elhaya/Core/widgets/CustomTextField.dart';
 import 'package:efaq_elhaya/Core/widgets/custom_date_Picker.dart';
@@ -48,8 +49,9 @@ class IndvDetails extends StatelessWidget {
           ),
           CustomDropDown(
             initialSelection: cubit.indivFormModel.gender,
+            isRequired: true,
             hint: LocaleKeys.gender.tr(),
-            items: AppMetaData.gender,
+            items: const ["ذكر", "انثى"],
             getLabel: (gender) => gender,
             getValue: (gender) => gender,
             onChanged: (p0) {
@@ -62,7 +64,8 @@ class IndvDetails extends StatelessWidget {
             label: LocaleKeys.DOB.tr(),
             hint: LocaleKeys.DOBHint.tr(),
             onSubmit: (p0) {
-              cubit.indivFormModel.birthDate = p0.toIso8601String();
+              cubit.indivFormModel.birthDate = p0.toString();
+              log(p0);
             },
           ),
         ],

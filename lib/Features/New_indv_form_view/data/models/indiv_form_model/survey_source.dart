@@ -1,8 +1,8 @@
 class IndivSurveySource {
-  bool? phoneSurvey = false;
-  bool? fieldSurvey = false;
+  bool? phoneSurvey;
+  bool? fieldSurvey;
 
-  IndivSurveySource({this.phoneSurvey, this.fieldSurvey});
+  IndivSurveySource({this.phoneSurvey = false, this.fieldSurvey = false});
 
   factory IndivSurveySource.fromJson(Map<String, dynamic> json) =>
       IndivSurveySource(

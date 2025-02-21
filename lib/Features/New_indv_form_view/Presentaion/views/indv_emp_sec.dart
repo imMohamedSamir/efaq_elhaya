@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:efaq_elhaya/Core/widgets/CustomTextField.dart';
-import 'package:efaq_elhaya/Core/widgets/custom_check_box.dart';
+import 'package:efaq_elhaya/Core/widgets/custom_check_box_tile.dart';
 import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/manager/cubit/individual_survay_cubit.dart';
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +18,7 @@ class IndvEmpSec extends StatelessWidget {
     return Column(
       spacing: 16.h,
       children: [
-        CustomCheckBox(
+        CustomCheckBoxTile(
           initialValue: cubit.employment.isEmployed,
           onChanged: (p0) {
             isEmp.value = p0;

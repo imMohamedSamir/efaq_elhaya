@@ -1,13 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:efaq_elhaya/Core/Helpers/app_meta_data.dart';
+import 'package:efaq_elhaya/Core/Utlis/Constatnts.dart';
 import 'package:efaq_elhaya/Core/widgets/CustomTextField.dart';
 import 'package:efaq_elhaya/Core/widgets/custom_date_Picker.dart';
 import 'package:efaq_elhaya/Core/widgets/custom_drop_down.dart';
+import 'package:efaq_elhaya/Features/Home_View/data/models/app_meta_data/app_meta_data.dart';
 import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/manager/cubit/individual_survay_cubit.dart';
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive/hive.dart';
 
 class IndvFamilyAndMarital extends StatelessWidget {
   const IndvFamilyAndMarital({super.key});
@@ -15,6 +17,7 @@ class IndvFamilyAndMarital extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<IndividualSurvayCubit>(context);
+    final metaData = Hive.box<AppMetaData>(kAppMetaData).values.first;
 
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 8.0.h),
@@ -43,7 +46,7 @@ class IndvFamilyAndMarital extends StatelessWidget {
           CustomDropDown(
             initialSelection: cubit.indivFormModel.maritalStatus,
             hint: LocaleKeys.maritalStatus.tr(),
-            items: AppMetaData.status,
+            items: metaData.maritalStatus ?? [],
             getLabel: (status) => status,
             getValue: (status) => status,
             onChanged: (p0) {
@@ -55,7 +58,7 @@ class IndvFamilyAndMarital extends StatelessWidget {
             hint: LocaleKeys.maritalDate.tr(),
             label: LocaleKeys.maritalDate.tr(),
             onSubmit: (p0) {
-              cubit.indivFormModel.marriageDate = p0.toIso8601String();
+              cubit.indivFormModel.marriageDate = p0.toString();
             },
           ),
         ],

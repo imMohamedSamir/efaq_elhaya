@@ -46,14 +46,14 @@ class IndvSurveyRegistration extends StatelessWidget {
             hint: LocaleKeys.surveyDate.tr(),
             label: LocaleKeys.surveyDate.tr(),
             onSubmit: (p0) {
-              cubit.indivFormModel.surveyDate = p0.toIso8601String();
+              cubit.indivFormModel.surveyDate = p0;
             },
           ),
           CustomDatePicker(
             hint: LocaleKeys.registrationDate.tr(),
             label: LocaleKeys.registrationDate.tr(),
             onSubmit: (p0) {
-              cubit.indivFormModel.registrationDate = p0.toIso8601String();
+              cubit.indivFormModel.registrationDate = p0;
             },
           ),
         ],

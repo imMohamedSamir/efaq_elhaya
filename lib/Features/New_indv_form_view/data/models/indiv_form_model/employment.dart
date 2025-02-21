@@ -4,7 +4,11 @@ class IndivEmployment {
   double? income;
   String? incomeSource;
 
-  IndivEmployment({this.isEmployed, this.job, this.income, this.incomeSource});
+  IndivEmployment(
+      {this.isEmployed = false,
+      this.job = "",
+      this.income = 0,
+      this.incomeSource});
 
   factory IndivEmployment.fromJson(Map<String, dynamic> json) =>
       IndivEmployment(

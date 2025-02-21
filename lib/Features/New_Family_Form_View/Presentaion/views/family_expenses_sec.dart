@@ -23,7 +23,7 @@ class FamilyExpensesSec extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 2.5, crossAxisCount: 2, crossAxisSpacing: 6),
+              mainAxisExtent: 70, crossAxisCount: 2, crossAxisSpacing: 6),
           children: [
             CustomTextField(
               hintText: LocaleKeys.transportation.tr(),
@@ -69,6 +69,7 @@ class FamilyExpensesSec extends StatelessWidget {
             ),
           ],
         ),
+        const Divider(color: ColorManager.grey),
         CustomTextField(
           hintText: LocaleKeys.totalExpenses.tr(),
           label: LocaleKeys.totalExpenses.tr(),

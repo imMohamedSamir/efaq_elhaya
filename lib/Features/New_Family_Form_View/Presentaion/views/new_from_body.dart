@@ -14,7 +14,7 @@ class NewFromBody extends StatelessWidget {
         return const NewFormLayoutMobile();
       },
       tabletLayout: (BuildContext context) {
-        return const SizedBox();
+        return const NewFormLayoutMobile();
       },
     );
   }

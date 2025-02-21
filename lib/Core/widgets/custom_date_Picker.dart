@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:efaq_elhaya/Core/Helpers/validation.dart';
 import 'package:efaq_elhaya/Core/theming/color_manager.dart';
 import 'package:efaq_elhaya/Core/theming/text_styles.dart';
@@ -17,7 +18,7 @@ class CustomDatePicker extends StatefulWidget {
   });
   final String? hint;
   final String? label;
-  final Function(DateTime)? onSubmit;
+  final Function(String)? onSubmit;
   final String? initailValue;
   final bool isReqiured;
   @override
@@ -82,7 +83,7 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
                 confirmText: "تم",
                 onSubmit: (value) {
                   if (value is DateTime) {
-                    widget.onSubmit!(value);
+                    widget.onSubmit!(DateFormat('yyyy-MM-dd').format(value));
                     setState(() {
                       _formatDate(date: value);
                     });

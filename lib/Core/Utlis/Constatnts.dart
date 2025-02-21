@@ -3,3 +3,5 @@ const String kArabic = 'ar';
 const String kEnglish = 'en';
 const String savedToken = "token";
 const String savedRole = "role";
+const String kAppMetaData = "AppMetaData";
+const String kCities = "Cities";

@@ -13,6 +13,7 @@ import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/views/indv_s
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class NewIndvMobile extends StatelessWidget {
   const NewIndvMobile({super.key});
@@ -55,47 +56,57 @@ class NewIndvMobile extends StatelessWidget {
     final cubit = BlocProvider.of<IndividualSurvayCubit>(context);
     final steps = getSteps();
 
-    return Form(
-      key: cubit.formKey,
-      child: ValueListenableBuilder<int>(
-        valueListenable: currentPage,
-        builder: (context, stepIndex, child) {
-          return Stepper(
-            clipBehavior: Clip.antiAlias,
-            type: StepperType.vertical,
-            currentStep: stepIndex,
-            onStepTapped: (index) =>
-                currentPage.value = index, // Efficient update
-            steps: steps.asMap().entries.map((entry) {
-              int index = entry.key;
-              StepModel step = entry.value;
-              return Step(
-                state: getStepState(index, stepIndex),
-                title: Text(
-                  step.title,
-                  style: AppTextStyles.semiBold18
-                      .copyWith(color: ColorManager.secondary),
-                ),
-                content: step.body,
-              );
-            }).toList(),
+    return BlocBuilder<IndividualSurvayCubit, IndividualSurvayState>(
+      builder: (context, state) {
+        return ModalProgressHUD(
+          inAsyncCall: state is IndividualSurvayLoading,
+          blur: 1.3,
+          progressIndicator:
+              const CircularProgressIndicator(color: ColorManager.primary),
+          child: Form(
+            key: cubit.formKey,
+            child: ValueListenableBuilder<int>(
+              valueListenable: currentPage,
+              builder: (context, stepIndex, child) {
+                return Stepper(
+                  clipBehavior: Clip.antiAlias,
+                  type: StepperType.vertical,
+                  currentStep: stepIndex,
+                  onStepTapped: (index) =>
+                      currentPage.value = index, // Efficient update
+                  steps: steps.asMap().entries.map((entry) {
+                    int index = entry.key;
+                    StepModel step = entry.value;
+                    return Step(
+                      state: getStepState(index, stepIndex),
+                      title: Text(
+                        step.title,
+                        style: AppTextStyles.semiBold18
+                            .copyWith(color: ColorManager.secondary),
+                      ),
+                      content: step.body,
+                    );
+                  }).toList(),
 
-            // stepIconBuilder: (stepIndex, stepState) {
-            //   if (stepState == StepState.complete) {
-            //     return const Icon(
-            //       Icons.check_circle,
-            //       color: ColorManager.primary,
-            //       blendMode: BlendMode.color,
-            //     );
-            //   }
-            //   return null;
-            // },
-            controlsBuilder: (context, details) {
-              return const SizedBox.shrink();
-            },
-          );
-        },
-      ),
+                  // stepIconBuilder: (stepIndex, stepState) {
+                  //   if (stepState == StepState.complete) {
+                  //     return const Icon(
+                  //       Icons.check_circle,
+                  //       color: ColorManager.primary,
+                  //       blendMode: BlendMode.color,
+                  //     );
+                  //   }
+                  //   return null;
+                  // },
+                  controlsBuilder: (context, details) {
+                    return const SizedBox.shrink();
+                  },
+                );
+              },
+            ),
+          ),
+        );
+      },
     );
   }
 }

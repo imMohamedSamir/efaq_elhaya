@@ -141,7 +141,7 @@
     "medicines": "الأدوية",
     "medicationName": "اسم الدواء",
     "medicationDescription": "وصف الدواء",
-    "medicationDose": "جرعة الدواء",
+    "medicationDose":   "جرعة الدواء",
     "medicationCost": "تكلفة الدواء",
     "familyProviders": "مزودو الأسرة",
     "providerName": "اسم المزود",
@@ -152,12 +152,31 @@
     "numberOfRooms": "عدد الغرف",
     "houseCondition": "حالة المنزل",
     "furnitureDescription": "وصف الأثاث",
-    "booleanFurnitureItems": "عناصر الأثاث البولي",
-    "numericFurnitureItems": "عناصر الأثاث الرقمية",
     "researchLastDate": "آخر تاريخ بحث",
     "organizationOpinion": "رأي المنظمة",
     "surveyUpdateLocation": "موقع تحديث الاستبيان",
-    "FinancialInformation": "المعلومات المالية"
+    "FinancialInformation": "المعلومات المالية",
+    "HealthMedicines": "الصحة والأدوية",
+    "HeadoftheFamily": "رب الأسرة",
+    "LegalPapersDocuments": "الأوراق والمستندات القانونية",
+    "FamilyMembersIndividuals": "أفراد الأسرة",
+    "HomeFurnitureInformation": "معلومات المنزل والأثاث",
+    "SurveysResearch": "الاستطلاعات والبحوث",
+    "OtherImportantInformation": "معلومات أخرى مهمة",
+    "researcherOpinion":"رأي الباحث",
+    "foodBank": "أهلية بنك الطعام",
+    "lastDistribution": "آخر توزيع للمساعدات",
+    "mobileType": "نوع الهاتف",
+    "itemDeleted": "تم حذف العنصر",
+    "validForDevelopment": "مؤهل لبرامج التنمية",
+    "currentCondition": "الحالة الحالية",
+    "rate": "تقييم الأسرة",
+    "valid": "مؤهل للمساعدة",
+    "conditionSource": "مصدر الحالة",
+    "educated": "المستوى التعليمي",
+    "updatedAt": "آخر تحديث",
+    "Logoutofyouraccount": "هل تريد تسجيل الخروج من حسابك؟"
+
 
 
 

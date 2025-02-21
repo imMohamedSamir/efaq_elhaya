@@ -16,8 +16,8 @@ class FamilyFinancialInfo extends StatelessWidget {
         spacing: 16.h,
         children: [
           CustomTagsTextField(
-              label: LocaleKeys.incomeSource.tr(),
-              hintText: LocaleKeys.incomeSource.tr(),
+              label: LocaleKeys.incomeSources.tr(),
+              hintText: LocaleKeys.incomeSources.tr(),
               onTagsUpdated: (tags) {}),
           CustomTextField(
             hintText: LocaleKeys.totalIncome.tr(),

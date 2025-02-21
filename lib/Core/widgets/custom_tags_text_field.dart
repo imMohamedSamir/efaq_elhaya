@@ -70,6 +70,7 @@ class _CustomTagsTextFieldState extends State<CustomTagsTextField> {
       children: [
         // TextField for input
         CustomTextField(
+          suffixIcon: const Icon(Icons.more),
           focusNode: focusNode,
           hintText: widget.hintText,
           label: widget.label,

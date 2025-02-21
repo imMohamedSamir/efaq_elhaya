@@ -11,7 +11,6 @@ import 'package:efaq_elhaya/Features/New_indv_form_view/data/models/indiv_form_m
 import 'package:efaq_elhaya/Features/New_indv_form_view/data/repo/indiv_repo.dart';
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 part 'individual_survay_state.dart';
 
@@ -27,6 +26,7 @@ class IndividualSurvayCubit extends Cubit<IndividualSurvayState> {
   void submit() async {
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
+      emit(IndividualSurvayLoading());
       indivFormModel.address = address;
       indivFormModel.employment = employment;
       indivFormModel.surveySource = surveySource;
@@ -38,9 +38,12 @@ class IndividualSurvayCubit extends Cubit<IndividualSurvayState> {
       result.fold(
           (fail) => CustomToastification.errorDialog(
               content: LocaleKeys.indvErrorMsg.tr()), (success) {
+        emit(IndividualSurvaySuccess());
         CustomDialog.IndivSuccess();
       });
     } else {
+      emit(IndividualSurvayFailure());
+
       CustomToastification.errorDialog(
           content: LocaleKeys.genericValidation.tr());
     }

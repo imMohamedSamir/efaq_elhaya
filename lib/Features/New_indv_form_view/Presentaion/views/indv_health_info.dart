@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:efaq_elhaya/Core/Helpers/validation.dart';
 import 'package:efaq_elhaya/Core/widgets/CustomTextField.dart';
 import 'package:efaq_elhaya/Core/widgets/custom_tags_text_field.dart';
 import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/manager/cubit/individual_survay_cubit.dart';
@@ -21,6 +22,7 @@ class IndvHealthInfo extends StatelessWidget {
         children: [
           CustomTextField(
             initialValue: cubit.indivFormModel.healthStatus,
+            validator: Validation.general,
             label: LocaleKeys.HealthStatus.tr(),
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.text,

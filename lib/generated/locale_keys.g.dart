@@ -156,11 +156,29 @@ abstract class  LocaleKeys {
   static const numberOfRooms = 'numberOfRooms';
   static const houseCondition = 'houseCondition';
   static const furnitureDescription = 'furnitureDescription';
-  static const booleanFurnitureItems = 'booleanFurnitureItems';
-  static const numericFurnitureItems = 'numericFurnitureItems';
   static const researchLastDate = 'researchLastDate';
   static const organizationOpinion = 'organizationOpinion';
   static const surveyUpdateLocation = 'surveyUpdateLocation';
   static const FinancialInformation = 'FinancialInformation';
+  static const HealthMedicines = 'HealthMedicines';
+  static const HeadoftheFamily = 'HeadoftheFamily';
+  static const LegalPapersDocuments = 'LegalPapersDocuments';
+  static const FamilyMembersIndividuals = 'FamilyMembersIndividuals';
+  static const HomeFurnitureInformation = 'HomeFurnitureInformation';
+  static const SurveysResearch = 'SurveysResearch';
+  static const OtherImportantInformation = 'OtherImportantInformation';
+  static const researcherOpinion = 'researcherOpinion';
+  static const foodBank = 'foodBank';
+  static const lastDistribution = 'lastDistribution';
+  static const mobileType = 'mobileType';
+  static const itemDeleted = 'itemDeleted';
+  static const validForDevelopment = 'validForDevelopment';
+  static const currentCondition = 'currentCondition';
+  static const rate = 'rate';
+  static const valid = 'valid';
+  static const conditionSource = 'conditionSource';
+  static const educated = 'educated';
+  static const updatedAt = 'updatedAt';
+  static const Logoutofyouraccount = 'Logoutofyouraccount';
 
 }

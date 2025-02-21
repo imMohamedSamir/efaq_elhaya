@@ -1,12 +1,16 @@
-import 'dart:developer';
-
 import 'package:awesome_stepper/awesome_stepper.dart';
 import 'package:efaq_elhaya/Core/theming/color_manager.dart';
 import 'package:efaq_elhaya/Core/theming/text_styles.dart';
 import 'package:efaq_elhaya/Core/widgets/customButton.dart';
+import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/views/family_Furniture_sec.dart';
 import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/views/family_address_sec.dart';
 import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/views/family_details.dart';
+import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/views/family_docs_sec.dart';
 import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/views/family_financial_info.dart';
+import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/views/family_head_sec.dart';
+import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/views/family_health_medicines.dart';
+import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/views/family_other_info_sec.dart';
+import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/views/family_survey_sec.dart';
 import 'package:efaq_elhaya/Features/New_Family_Form_View/data/models/step_model.dart';
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +23,7 @@ class NewFormLayoutMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int currentPage = 0;
+    int currentPage = 7;
     List<StepModel> steps = [
       StepModel(
           title: LocaleKeys.familyDetails.tr(), body: const FamilyDetails()),
@@ -28,14 +32,28 @@ class NewFormLayoutMobile extends StatelessWidget {
           title: LocaleKeys.FinancialInformation.tr(),
           body: const FamilyFinancialInfo()),
       StepModel(
-          title: LocaleKeys.familyDetails.tr(), body: const FamilyDetails()),
+          title: LocaleKeys.HealthMedicines.tr(),
+          body: const FamilyHealthMedicines()),
+      StepModel(
+          title: LocaleKeys.HeadoftheFamily.tr(), body: const FamilyHeadSec()),
+      StepModel(
+          title: LocaleKeys.LegalPapersDocuments.tr(),
+          body: const FamilyDocsSec()),
+      StepModel(
+          title: LocaleKeys.HomeFurnitureInformation.tr(),
+          body: const FamilyFurnitureSec()),
+      StepModel(
+          title: LocaleKeys.SurveysResearch.tr(),
+          body: const FamilySurveySec()),
+      StepModel(
+          title: LocaleKeys.OtherImportantInformation.tr(),
+          body: const FamilyOtherInfoSec()),
     ];
     return Directionality(
       textDirection: TextDirection.rtl,
       child: AwesomeStepper(
         onStepChanged: (page) {
           currentPage = page;
-          log(currentPage.toString());
         },
         headerStyle: AppTextStyles.medium20,
         headerColor: ColorManager.primary.withValues(alpha: 0.2),
@@ -57,7 +75,7 @@ class NewFormLayoutMobile extends StatelessWidget {
                 Expanded(
                   child: CustomButton(
                     btncolor: ColorManager.grey,
-                    text: "back",
+                    text: LocaleKeys.back.tr(),
                     txtcolor: Colors.white,
                     onPressed: () {
                       if (currentPage > 0) {
@@ -70,9 +88,13 @@ class NewFormLayoutMobile extends StatelessWidget {
                 Expanded(
                   child: CustomButton(
                     btncolor: ColorManager.primary,
-                    text: "next",
+                    text: LocaleKeys.Next.tr(),
                     txtcolor: Colors.white,
-                    onPressed: onNextTapped,
+                    onPressed: () {
+                      if (currentPage < steps.length - 1) {
+                        onNextTapped();
+                      }
+                    },
                   ),
                 ),
               ],

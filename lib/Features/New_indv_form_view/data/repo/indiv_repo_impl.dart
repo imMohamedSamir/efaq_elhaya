@@ -18,7 +18,7 @@ class IndivRepoImpl implements IndivRepo {
   Future<Either<Failure, dynamic>> sendForm(
       {required IndivFormModel form}) async {
     final token = await TokenManager.getUserToken();
-    const endPoint = "IndividualSurvey";
+    const endPoint = "IndividualSurvey/AddIndividualPhone";
 
     try {
       final response = await _apiServices.post(

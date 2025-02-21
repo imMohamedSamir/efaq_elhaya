@@ -8,7 +8,9 @@ import 'package:flutter_svg/svg.dart';
 class CustomAppbar {
   static AppBar normal(BuildContext context, {required String title}) {
     return AppBar(
-      title: Text(title, style: AppTextStyles.medium24),
+      title: Text(title,
+          style:
+              AppTextStyles.medium24.copyWith(color: ColorManager.secondary)),
       leading: IconButton(
           onPressed: () {
             Navigator.pop(context);

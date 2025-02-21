@@ -33,7 +33,6 @@ class LoginCubit extends Cubit<LoginState> {
       }, (model) {
         emit(LoginSuccess());
         _saveToken(model);
-        CustomToastification.successDialog(content: "تم تسجيل الدخول بنجاح");
         NavigateToPage.slideFromRightandRemove(
             context: navigatorKey.currentContext!, page: const HomeView());
       });

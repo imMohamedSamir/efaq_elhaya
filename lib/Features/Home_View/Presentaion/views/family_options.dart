@@ -1,12 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:efaq_elhaya/Core/routing/NavigationMethod.dart';
-import 'package:efaq_elhaya/Core/theming/color_manager.dart';
-import 'package:efaq_elhaya/Core/theming/text_styles.dart';
+import 'package:efaq_elhaya/Features/Home_View/Presentaion/views/HomeOptionCard.dart';
 import 'package:efaq_elhaya/Features/Home_View/data/models/home_option_model.dart';
 import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/new_family_form_view.dart';
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FamilOptions extends StatelessWidget {
   const FamilOptions({super.key});
@@ -14,6 +11,7 @@ class FamilOptions extends StatelessWidget {
     HomeOptionModel(
         title: LocaleKeys.createFamilyForm.tr(),
         icon: Icons.post_add_rounded,
+        isActive: true,
         route: const NewFamilyFormView()),
     HomeOptionModel(
         title: LocaleKeys.pendingForms.tr(),
@@ -37,29 +35,8 @@ class FamilOptions extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
-          children: List.generate(options.length, (index) {
-        return Padding(
-          padding: EdgeInsets.only(bottom: 16.0.h),
-          child: ListTile(
-            contentPadding: EdgeInsets.only(right: 70.w, left: 16.w),
-            tileColor: ColorManager.primary,
-            iconColor: Colors.white,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-                side: const BorderSide(color: ColorManager.primary)),
-            titleAlignment: ListTileTitleAlignment.center,
-            trailing: Icon(options[index].icon, size: 30.sp),
-            title: Text(
-              options[index].title,
-              style: AppTextStyles.medium18.copyWith(color: Colors.white),
-            ),
-            onTap: () {
-              NavigateToPage.slideFromLeft(
-                  context: context, page: options[index].route);
-            },
-          ),
-        );
-      })),
+          children:
+              options.map((option) => HomeOptionCard(option: option)).toList()),
     );
   }
 }
