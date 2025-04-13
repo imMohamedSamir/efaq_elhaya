@@ -175,7 +175,21 @@
     "conditionSource": "مصدر الحالة",
     "educated": "المستوى التعليمي",
     "updatedAt": "آخر تحديث",
-    "Logoutofyouraccount": "هل تريد تسجيل الخروج من حسابك؟"
+    "Logoutofyouraccount": "هل تريد تسجيل الخروج من حسابك؟",
+    "image":"الصورة",
+    "enableLocation": "تفعيل الموقع",
+    "enableLocationMsg": "نحتاج إلى الوصول إلى موقعك لتقديم أفضل تجربة. يُرجى تفعيل خدمات الموقع.",
+    "enableLocationBtn": "تفعيل الموقع",
+    "cancel":"الغاء",
+    "Edit":"تعديل",
+    "Save":"حفظ", 
+    "Other":"اخرى",
+    "ErrorLoading":"حدث خطأ فى تحميل البيانات ,الرجاء المحاولة لاحقا.",
+    "otherimages":"صور اخرى",
+    "relationToHead":"العلاقة برب الاسرة"
+
+
+
 
 
 

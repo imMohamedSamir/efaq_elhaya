@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:efaq_elhaya/Core/Helpers/validation.dart';
 import 'package:efaq_elhaya/Core/theming/color_manager.dart';
 import 'package:efaq_elhaya/Core/widgets/CustomTextField.dart';
-import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/manager/individual_survay_cubit/indv_location_cubit.dart';
+import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/manager/indv_location_cubit/indv_location_cubit.dart';
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,6 +39,7 @@ class IndvRegLocation extends StatelessWidget {
                   color: ColorManager.primary,
                 ),
               ),
+              onChanged: (p0) => cubit.updateLocation(context, location: p0),
             ),
           ),
         );

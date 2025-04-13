@@ -1,8 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
-import 'package:efaq_elhaya/Core/widgets/CustomTextField.dart';
-import 'package:efaq_elhaya/Core/widgets/custom_check_box_tile.dart';
-import 'package:efaq_elhaya/generated/locale_keys.g.dart';
+import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/manager/family_cubit/family_cubit.dart';
+import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/views/family_doc_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FamilyDocsSec extends StatelessWidget {
@@ -10,44 +9,31 @@ class FamilyDocsSec extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ValueNotifier<bool> hasgas = ValueNotifier<bool>(false);
-    final ValueNotifier<bool> haswater = ValueNotifier<bool>(false);
+    // final metaData = Hive.box<AppMetaData>(kAppMetaData).values.first;
+    final cubit = BlocProvider.of<FamilyCubit>(context);
+
+    final List<String> docs = [
+      "صورة البطاقة",
+      "صورة عقد الايجار",
+      "فاتورة غاز",
+      "فاتورة كهرباء",
+      "فاتورة ماء",
+    ];
     return Column(
       spacing: 16.h,
-      children: [
-        CustomCheckBoxTile(
-            onChanged: (p0) {
-              hasgas.value = p0;
-            },
-            title: LocaleKeys.gasInvoice.tr()),
-        ValueListenableBuilder(
-          valueListenable: hasgas,
-          builder: (BuildContext context, bool value, Widget? child) {
-            return CustomTextField(
-              enabled: value,
-              hintText: LocaleKeys.imageUrl.tr(),
-              label: LocaleKeys.imageUrl.tr(),
-              textInputAction: TextInputAction.next,
-            );
-          },
-        ),
-        CustomCheckBoxTile(
-            onChanged: (p0) {
-              haswater.value = p0;
-            },
-            title: LocaleKeys.waterInvoice.tr()),
-        ValueListenableBuilder(
-          valueListenable: haswater,
-          builder: (BuildContext context, bool value, Widget? child) {
-            return CustomTextField(
-              enabled: value,
-              hintText: LocaleKeys.imageUrl.tr(),
-              label: LocaleKeys.imageUrl.tr(),
-              textInputAction: TextInputAction.next,
-            );
-          },
-        ),
-      ],
+      children: docs
+          .map((doc) => FamilyDocCard(
+                initialFile: cubit.docData[doc],
+                title: doc,
+                onChanged: (img) {
+                  if (img != null) {
+                    cubit.docData[doc] = img;
+                  } else {
+                    cubit.docData.remove(doc);
+                  }
+                },
+              ))
+          .toList(),
     );
   }
 }

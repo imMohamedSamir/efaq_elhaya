@@ -12,7 +12,7 @@ class ProfileOptionsDetails extends StatelessWidget {
   const ProfileOptionsDetails({super.key});
   static List<ProfileOptionsCardModel> options = [
     ProfileOptionsCardModel(
-        title: LocaleKeys.editProfile.tr(),
+        title: LocaleKeys.profile.tr(),
         icon: Icons.person,
         page: const EditProfilePage()),
     ProfileOptionsCardModel(

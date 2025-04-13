@@ -180,5 +180,16 @@ abstract class  LocaleKeys {
   static const educated = 'educated';
   static const updatedAt = 'updatedAt';
   static const Logoutofyouraccount = 'Logoutofyouraccount';
+  static const image = 'image';
+  static const enableLocation = 'enableLocation';
+  static const enableLocationMsg = 'enableLocationMsg';
+  static const enableLocationBtn = 'enableLocationBtn';
+  static const cancel = 'cancel';
+  static const Edit = 'Edit';
+  static const Save = 'Save';
+  static const Other = 'Other';
+  static const ErrorLoading = 'ErrorLoading';
+  static const otherimages = 'otherimages';
+  static const relationToHead = 'relationToHead';
 
 }

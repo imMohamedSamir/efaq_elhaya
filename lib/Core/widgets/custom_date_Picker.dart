@@ -40,7 +40,8 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
 
   void _checkInitialValue() {
     if (widget.initailValue != null) {
-      _formatDate(date: DateTime.parse(widget.initailValue!));
+      _formatDate(
+          date: DateTime.tryParse(widget.initailValue!) ?? DateTime.now());
     }
   }
 
@@ -72,41 +73,50 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(16),
             child: SfDateRangePicker(
-                toggleDaySelection: true,
-                selectionTextStyle: AppTextStyles.medium18,
-                navigationMode: DateRangePickerNavigationMode.snap,
-                controller: controller,
-                showActionButtons: true,
-                onSelectionChanged: (dateRangePickerSelectionChangedArgs) {},
-                selectionMode: DateRangePickerSelectionMode.single,
-                cancelText: "الغاء",
-                confirmText: "تم",
-                onSubmit: (value) {
-                  if (value is DateTime) {
-                    widget.onSubmit!(DateFormat('yyyy-MM-dd').format(value));
-                    setState(() {
-                      _formatDate(date: value);
-                    });
-                    Navigator.pop(context);
-                  }
-                },
-                onCancel: () {
+              todayHighlightColor: ColorManager.primary,
+              toggleDaySelection: true,
+              selectionTextStyle: AppTextStyles.medium18,
+              rangeTextStyle: AppTextStyles.medium18,
+              navigationMode: DateRangePickerNavigationMode.snap,
+
+              headerStyle: DateRangePickerHeaderStyle(
+                textStyle: AppTextStyles.medium18,
+              ),
+              view: DateRangePickerView.month,
+
+              controller: controller,
+              showActionButtons: true,
+              onSelectionChanged: (dateRangePickerSelectionChangedArgs) {},
+              selectionMode: DateRangePickerSelectionMode.single,
+              cancelText: "الغاء",
+              confirmText: "تم",
+              onSubmit: (value) {
+                if (value is DateTime) {
+                  widget.onSubmit!(DateFormat('yyyy-MM-dd').format(value));
+                  setState(() {
+                    _formatDate(date: value);
+                  });
                   Navigator.pop(context);
-                },
-                selectionColor: ColorManager.primary,
-                selectionShape: DateRangePickerSelectionShape.circle,
-                cellBuilder: (BuildContext context,
-                    DateRangePickerCellDetails cellDetails) {
-                  return Container(
-                    decoration: const BoxDecoration(shape: BoxShape.circle),
-                    alignment: Alignment.center,
-                    child: Text(
-                      cellDetails.date.day.toString(),
-                      style: AppTextStyles.medium16
-                          .copyWith(color: ColorManager.secondary),
-                    ),
-                  );
-                }),
+                }
+              },
+              onCancel: () {
+                Navigator.pop(context);
+              },
+              selectionColor: ColorManager.primary,
+              selectionShape: DateRangePickerSelectionShape.circle,
+              // cellBuilder: (BuildContext context,
+              //     DateRangePickerCellDetails cellDetails) {
+              //   return Container(
+              //     decoration: const BoxDecoration(shape: BoxShape.circle),
+              //     alignment: Alignment.center,
+              //     child: Text(
+              //       cellDetails.date.day.toString(),
+              //       style: AppTextStyles.medium16
+              //           .copyWith(color: ColorManager.secondary),
+              //     ),
+              //   );
+              // },
+            ),
           ),
         );
       },

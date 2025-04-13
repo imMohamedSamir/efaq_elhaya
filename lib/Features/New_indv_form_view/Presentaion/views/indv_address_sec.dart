@@ -4,7 +4,7 @@ import 'package:efaq_elhaya/Core/Utlis/Constatnts.dart';
 import 'package:efaq_elhaya/Core/widgets/CustomTextField.dart';
 import 'package:efaq_elhaya/Core/widgets/custom_drop_down.dart';
 import 'package:efaq_elhaya/Features/Home_View/data/models/app_meta_data/app_meta_data.dart';
-import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/manager/cubit/individual_survay_cubit.dart';
+import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/manager/individual_survay_cubit/individual_survay_cubit.dart';
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

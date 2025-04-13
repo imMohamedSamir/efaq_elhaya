@@ -1,9 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:efaq_elhaya/Core/Utlis/check_constrains.dart';
 import 'package:efaq_elhaya/Core/theming/color_manager.dart';
 import 'package:efaq_elhaya/Core/theming/text_styles.dart';
 import 'package:efaq_elhaya/Core/widgets/CustomTextField.dart';
+import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/manager/family_cubit/family_cubit.dart';
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FamilyExpensesSec extends StatelessWidget {
@@ -11,6 +14,8 @@ class FamilyExpensesSec extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<FamilyCubit>(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 16.h,
@@ -22,64 +27,50 @@ class FamilyExpensesSec extends StatelessWidget {
         GridView(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              mainAxisExtent: 70, crossAxisCount: 2, crossAxisSpacing: 6),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            mainAxisExtent: 70,
+            crossAxisCount: isTablet(context) ? 3 : 2,
+            crossAxisSpacing: 8,
+          ),
           children: [
-            CustomTextField(
-              hintText: LocaleKeys.transportation.tr(),
-              label: LocaleKeys.transportation.tr(),
-              textInputAction: TextInputAction.next,
-              isEGP: true,
-            ),
-            CustomTextField(
-              hintText: LocaleKeys.rent.tr(),
-              label: LocaleKeys.rent.tr(),
-              textInputAction: TextInputAction.next,
-              isEGP: true,
-            ),
-            CustomTextField(
-              hintText: LocaleKeys.gas.tr(),
-              label: LocaleKeys.gas.tr(),
-              textInputAction: TextInputAction.next,
-              isEGP: true,
-            ),
-            CustomTextField(
-              hintText: LocaleKeys.electricity.tr(),
-              label: LocaleKeys.electricity.tr(),
-              textInputAction: TextInputAction.next,
-              isEGP: true,
-            ),
-            CustomTextField(
-              hintText: LocaleKeys.waterBill.tr(),
-              label: LocaleKeys.waterBill.tr(),
-              textInputAction: TextInputAction.next,
-              isEGP: true,
-            ),
-            CustomTextField(
-              hintText: LocaleKeys.food.tr(),
-              label: LocaleKeys.food.tr(),
-              textInputAction: TextInputAction.next,
-              isEGP: true,
-            ),
-            CustomTextField(
-              hintText: LocaleKeys.education.tr(),
-              label: LocaleKeys.education.tr(),
-              textInputAction: TextInputAction.next,
-              isEGP: true,
-            ),
+            for (var item in [
+              {
+                'key': LocaleKeys.transportation,
+                'label': LocaleKeys.transportation
+              },
+              {'key': LocaleKeys.rent, 'label': LocaleKeys.rent},
+              {'key': LocaleKeys.gas, 'label': LocaleKeys.gas},
+              {'key': LocaleKeys.electricity, 'label': LocaleKeys.electricity},
+              {'key': LocaleKeys.waterBill, 'label': LocaleKeys.waterBill},
+              {'key': LocaleKeys.food, 'label': LocaleKeys.food},
+              {'key': LocaleKeys.education, 'label': LocaleKeys.education},
+              {'key': LocaleKeys.Other, 'label': LocaleKeys.Other},
+            ])
+              CustomTextField(
+                initialValue: _getInitial(cubit: cubit, item: item),
+                hintText: item['label']!.tr(),
+                label: item['label']!.tr(),
+                textInputAction: TextInputAction.next,
+                isEGP: true,
+                onChanged: (value) => cubit.setExpenses(item['key']!, value),
+              ),
           ],
         ),
         const Divider(color: ColorManager.grey),
         CustomTextField(
+          controller: cubit.totalExpensesController,
           hintText: LocaleKeys.totalExpenses.tr(),
           label: LocaleKeys.totalExpenses.tr(),
           readOnly: true,
           isEGP: true,
         ),
+        //
         CustomTextField(
+          controller: cubit.netIncomeController,
           hintText: LocaleKeys.netIncome.tr(),
           label: LocaleKeys.netIncome.tr(),
           isEGP: true,
+          readOnly: true,
         ),
         CustomTextField(
           hintText: LocaleKeys.totalExpensesDescription.tr(),
@@ -88,5 +79,13 @@ class FamilyExpensesSec extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  String? _getInitial(
+      {required FamilyCubit cubit, required Map<String, String> item}) {
+    if (cubit.expensesModel.getExpenseValue(item['key']!) == 0) {
+      return null;
+    }
+    return cubit.expensesModel.getExpenseValue(item['key']!)?.toString() ?? "";
   }
 }

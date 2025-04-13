@@ -10,7 +10,11 @@ class ProfileBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
       child: Column(
-        children: [ProfileDetailsSec(), ProfileOptionsDetails(), LogoutBtn()],
+        children: [
+          ProfileDetailsSec(),
+          ProfileOptionsDetails(),
+          LogoutBtn(),
+        ],
       ),
     );
   }

@@ -175,8 +175,18 @@
     "conditionSource": "Condition Source",
     "educated": "Education Level",
     "updatedAt": "Last Updated",
-    "Logoutofyouraccount":"Logout of your account ?"
-    
+    "Logoutofyouraccount":"Logout of your account ?",
+    "image":"image",
+    "enableLocation":"enable Location",
+    "enableLocationMsg":"We need access to your location to provide the best experience. Please enable location services.",
+    "enableLocationBtn":"Enable Location",
+    "cancel":"cancel",
+    "Edit":"Edit",
+    "Save":"Save",
+    "Other":"other",
+    "ErrorLoading":"There was an error loading data, please try again later.",
+    "otherimages":"Other Images",
+    "relationToHead":"Relation to Head"  
         
       
       

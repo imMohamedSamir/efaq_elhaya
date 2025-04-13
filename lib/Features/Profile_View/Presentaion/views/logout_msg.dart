@@ -32,23 +32,23 @@ class LogoutMsg extends StatelessWidget {
               Expanded(
                 child: CustomButton(
                   isborder: true,
-                  text: LocaleKeys.Logout.tr(),
-                  txtcolor: Colors.white,
-                  btncolor: Colors.redAccent,
+                  text: LocaleKeys.back.tr(),
+                  txtcolor: Colors.blueGrey,
+                  btncolor: Colors.white,
                   onPressed: () {
-                    _logoutMethod(context);
+                    Navigator.pop(context);
                   },
                 ),
               ),
               const Gap(8),
               Expanded(
                 child: CustomButton(
-                  // isborder: true,
-                  text: LocaleKeys.back.tr(),
-                  txtcolor: Colors.blueGrey,
-                  btncolor: Colors.white,
+                  isborder: true,
+                  text: LocaleKeys.Logout.tr(),
+                  txtcolor: Colors.white,
+                  btncolor: Colors.redAccent,
                   onPressed: () {
-                    Navigator.pop(context);
+                    _logoutMethod(context);
                   },
                 ),
               ),

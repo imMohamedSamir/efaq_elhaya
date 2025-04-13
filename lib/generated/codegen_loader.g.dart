@@ -191,7 +191,18 @@ class CodegenLoader extends AssetLoader{
   "conditionSource": "مصدر الحالة",
   "educated": "المستوى التعليمي",
   "updatedAt": "آخر تحديث",
-  "Logoutofyouraccount": "هل تريد تسجيل الخروج من حسابك؟"
+  "Logoutofyouraccount": "هل تريد تسجيل الخروج من حسابك؟",
+  "image": "الصورة",
+  "enableLocation": "تفعيل الموقع",
+  "enableLocationMsg": "نحتاج إلى الوصول إلى موقعك لتقديم أفضل تجربة. يُرجى تفعيل خدمات الموقع.",
+  "enableLocationBtn": "تفعيل الموقع",
+  "cancel": "الغاء",
+  "Edit": "تعديل",
+  "Save": "حفظ",
+  "Other": "اخرى",
+  "ErrorLoading": "حدث خطأ فى تحميل البيانات ,الرجاء المحاولة لاحقا.",
+  "otherimages": "صور اخرى",
+  "relationToHead": "العلاقة برب الاسرة"
 };
 static const Map<String,dynamic> _en = {
   "SignIn": "Sign in",
@@ -370,7 +381,18 @@ static const Map<String,dynamic> _en = {
   "conditionSource": "Condition Source",
   "educated": "Education Level",
   "updatedAt": "Last Updated",
-  "Logoutofyouraccount": "Logout of your account ?"
+  "Logoutofyouraccount": "Logout of your account ?",
+  "image": "image",
+  "enableLocation": "enable Location",
+  "enableLocationMsg": "We need access to your location to provide the best experience. Please enable location services.",
+  "enableLocationBtn": "Enable Location",
+  "cancel": "cancel",
+  "Edit": "Edit",
+  "Save": "Save",
+  "Other": "other",
+  "ErrorLoading": "There was an error loading data, please try again later.",
+  "otherimages": "Other Images",
+  "relationToHead": "Relation to Head"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

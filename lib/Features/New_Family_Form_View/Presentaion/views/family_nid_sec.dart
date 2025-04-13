@@ -1,15 +1,19 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:efaq_elhaya/Core/Helpers/validation.dart';
 import 'package:efaq_elhaya/Core/theming/color_manager.dart';
 import 'package:efaq_elhaya/Core/theming/text_styles.dart';
 import 'package:efaq_elhaya/Core/widgets/CustomTextField.dart';
+import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/manager/family_cubit/family_cubit.dart';
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FamilyNidSec extends StatelessWidget {
   const FamilyNidSec({super.key});
 
   Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<FamilyCubit>(context);
     final ValueNotifier<bool> isPassport = ValueNotifier<bool>(false);
     return ValueListenableBuilder(
       valueListenable: isPassport,
@@ -20,14 +24,14 @@ class FamilyNidSec extends StatelessWidget {
             Expanded(
               child: CustomTextField(
                 alwaysValidate: true,
-                // initialValue: cubit.indivFormModel.nationalId,
+                initialValue: cubit.newFamilyModel.nationalId,
                 hintText: LocaleKeys.NId.tr(),
                 label: LocaleKeys.NId.tr(),
                 keyboardType: TextInputType.number,
                 textInputAction: TextInputAction.next,
-                // validator: isPassport.value ? null : Validation.nid,
+                validator: isPassport.value ? null : Validation.nid,
                 onChanged: (p0) {
-                  // cubit.indivFormModel.nationalId = p0.trim();
+                  cubit.newFamilyModel.nationalId = p0.trim();
                 },
               ),
             ),

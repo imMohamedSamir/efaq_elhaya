@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:efaq_elhaya/Core/routing/NavigationMethod.dart';
 import 'package:efaq_elhaya/Core/theming/text_styles.dart';
@@ -42,7 +40,6 @@ class ProfileOptionsCard extends StatelessWidget {
   }
 
   String _getLang(BuildContext context) {
-    log(context.locale.languageCode);
     return context.locale.languageCode == 'en' ? "English" : "العربية";
   }
 }

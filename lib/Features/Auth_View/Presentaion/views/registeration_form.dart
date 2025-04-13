@@ -1,8 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:efaq_elhaya/Core/Helpers/validation.dart';
+import 'package:efaq_elhaya/Core/Utlis/Constatnts.dart';
 import 'package:efaq_elhaya/Core/widgets/CustomPasswordField.dart';
 import 'package:efaq_elhaya/Core/widgets/CustomTextField.dart';
-import 'package:efaq_elhaya/Core/widgets/custom_gender_dropdwon.dart';
+import 'package:efaq_elhaya/Core/widgets/custom_drop_down.dart';
 import 'package:efaq_elhaya/Features/Auth_View/Presentaion/manager/registeration_cubit/registeration_cubit.dart';
 import 'package:efaq_elhaya/Features/Auth_View/Presentaion/views/registeration_btn_builder.dart';
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
@@ -69,10 +70,12 @@ class RegisterationForm extends StatelessWidget {
             },
           ),
           Gap(20.h),
-          CustomGenderDropdwon(
-            onSaved: (p0) {
-              cubit.model.gender = p0!;
-            },
+          CustomDropDown(
+            hint: LocaleKeys.gender.tr(),
+            items: const [kMale, kFemale],
+            getLabel: (gender) => gender,
+            getValue: (gender) => gender,
+            onChanged: (p0) => cubit.model.gender = p0!,
           ),
           Gap(24.h),
           const RegisterationBtnBuilder()

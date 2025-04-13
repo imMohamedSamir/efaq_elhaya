@@ -38,6 +38,7 @@ class FamilyRegLocation extends StatelessWidget {
                   color: ColorManager.primary,
                 ),
               ),
+              onChanged: (p0) => cubit.editLoc(context, location: p0),
             ),
           ),
         );

@@ -1,3 +1,5 @@
+import 'package:efaq_elhaya/Features/New_indv_form_view/data/models/indiv_form_model/family_member.dart';
+
 import 'address.dart';
 import 'employment.dart';
 import 'survey_source.dart';
@@ -33,6 +35,7 @@ class IndivFormModel {
   String? notes;
   String? status;
   IndivSurveySource? surveySource;
+  FamilyMember? familyMember;
 
   IndivFormModel({
     this.name,
@@ -65,6 +68,7 @@ class IndivFormModel {
     this.notes = "",
     this.status,
     this.surveySource,
+    this.familyMember,
   });
 
   factory IndivFormModel.fromJson(Map<String, dynamic> json) {
@@ -141,5 +145,6 @@ class IndivFormModel {
         'notes': notes,
         'status': status,
         'surveySource': surveySource?.toJson(),
+        'familyMember': familyMember?.toJson(),
       };
 }

@@ -1,6 +1,6 @@
 import 'package:efaq_elhaya/Core/Helpers/location_service.dart';
 import 'package:efaq_elhaya/Core/Utlis/ToastificationMethod.dart';
-import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/manager/cubit/individual_survay_cubit.dart';
+import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/manager/individual_survay_cubit/individual_survay_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,5 +24,12 @@ class IndvLocationCubit extends Cubit<IndvLocationState> {
           .registrationLocation = location;
       emit(IndvLocationSuccess(location: location));
     });
+  }
+
+  void updateLocation(BuildContext context, {required String location}) {
+    controller.text = location;
+    BlocProvider.of<IndividualSurvayCubit>(context)
+        .indivFormModel
+        .registrationLocation = location;
   }
 }

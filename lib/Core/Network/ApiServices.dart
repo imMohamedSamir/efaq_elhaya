@@ -17,13 +17,18 @@ class ApiServices {
     return response.data;
   }
 
-  Future<dynamic> post({required String endPoint, body, String? token}) async {
+  Future<dynamic> post(
+      {required String endPoint,
+      body,
+      String? token,
+      bool isMulti = false}) async {
     var response = await _dio.post('$_baseUrl$endPoint',
         data: body,
+        // queryParameters: body,
         options: Options(headers: {
           'accept': '*/*',
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer $token'
+          // 'Content-Type': isMulti ? 'multipart/form-data' : 'application/json',
+          'Authorization': token == null ? null : 'Bearer $token'
         }));
     if (response.statusCode == 200) {
       dynamic responseData = response.data;

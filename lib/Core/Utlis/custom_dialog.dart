@@ -5,7 +5,7 @@ import 'package:efaq_elhaya/main.dart';
 import 'package:flutter/material.dart';
 
 class CustomDialog {
-  static void IndivSuccess() {
+  static void SuccessForm() {
     showDialog(
       context: navigatorKey.currentContext!,
       builder: (context) {
@@ -13,11 +13,12 @@ class CustomDialog {
           child: IndvSuccessSec(),
         );
       },
-    );
+    ).then((onValue) {});
   }
 
   static void locationMsg() {
     showDialog(
+      barrierDismissible: false,
       context: navigatorKey.currentContext!,
       builder: (context) {
         return const Dialog(

@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart' as local;
 import 'package:efaq_elhaya/Core/theming/color_manager.dart';
 import 'package:efaq_elhaya/Core/theming/text_styles.dart';
 import 'package:efaq_elhaya/Features/New_Family_Form_View/data/models/step_model.dart';
-import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/manager/cubit/individual_survay_cubit.dart';
+import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/manager/individual_survay_cubit/individual_survay_cubit.dart';
 import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/views/indv_address_sec.dart';
 import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/views/indv_details.dart';
 import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/views/indv_education_skills.dart';
@@ -88,16 +88,6 @@ class NewIndvMobile extends StatelessWidget {
                     );
                   }).toList(),
 
-                  // stepIconBuilder: (stepIndex, stepState) {
-                  //   if (stepState == StepState.complete) {
-                  //     return const Icon(
-                  //       Icons.check_circle,
-                  //       color: ColorManager.primary,
-                  //       blendMode: BlendMode.color,
-                  //     );
-                  //   }
-                  //   return null;
-                  // },
                   controlsBuilder: (context, details) {
                     return const SizedBox.shrink();
                   },

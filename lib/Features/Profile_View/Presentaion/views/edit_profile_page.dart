@@ -10,7 +10,7 @@ class EditProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar.normal(context, title: LocaleKeys.editProfile.tr()),
+      appBar: CustomAppbar.normal(context, title: LocaleKeys.profile.tr()),
       body: const EditProflieBody(),
     );
   }

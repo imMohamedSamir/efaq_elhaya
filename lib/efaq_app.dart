@@ -51,7 +51,7 @@ class EfaqApp extends StatelessWidget {
               if (snapshot.hasData && snapshot.data == true) {
                 return const HomeView();
               } else {
-                return const HomeView();
+                return const LoginView();
               }
             },
           ),

@@ -56,8 +56,10 @@ class CustomTextField extends StatelessWidget {
   final bool alwaysValidate;
   @override
   Widget build(BuildContext context) {
+    final isArabic = AppLang.isArabic();
     return TextFormField(
-      textDirection: AppLang.isArabic() ? TextDirection.rtl : TextDirection.ltr,
+      textDirection: isArabic ? TextDirection.rtl : TextDirection.ltr,
+      cursorOpacityAnimates: true,
       maxLines: maxLines,
       focusNode: focusNode,
       autovalidateMode: alwaysValidate
@@ -87,7 +89,7 @@ class CustomTextField extends StatelessWidget {
             : suffixIcon,
         prefixIcon: prefixIcon,
         label: label != null ? Text(label!) : null,
-        labelStyle: AppLang.isArabic()
+        labelStyle: isArabic
             ? AppTextStyles.semiBold18.copyWith(color: ColorManager.secondary)
             : AppTextStyles.medium16,
         focusedBorder: OutlineInputBorder(
@@ -101,10 +103,10 @@ class CustomTextField extends StatelessWidget {
         hintStyle:
             AppTextStyles.medium16.copyWith(color: const Color(0xff9E9D9D)),
         contentPadding: EdgeInsets.only(
-            left: AppLang.isArabic() ? 0 : 20.w,
+            left: isArabic ? 0 : 20.w,
             top: 16.h,
             bottom: 16.h,
-            right: AppLang.isArabic() ? 20 : 0),
+            right: isArabic ? 20 : 0),
       ),
     );
   }

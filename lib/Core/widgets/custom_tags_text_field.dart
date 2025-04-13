@@ -1,3 +1,4 @@
+import 'package:efaq_elhaya/Core/Helpers/validation.dart';
 import 'package:efaq_elhaya/Core/theming/color_manager.dart';
 import 'package:efaq_elhaya/Core/theming/text_styles.dart';
 import 'package:efaq_elhaya/Core/widgets/CustomTextField.dart';
@@ -10,13 +11,14 @@ class CustomTagsTextField extends StatefulWidget {
     this.hintText,
     required this.onTagsUpdated,
     this.label,
-    this.initialValue, // Callback to notify parent widget
+    this.initialValue,
+    this.isRequired = false, // Callback to notify parent widget
   });
   final String? hintText;
   final String? label;
   final List<String>? initialValue;
   final Function(List<String>) onTagsUpdated; // Callback function
-
+  final bool isRequired;
   @override
   State<CustomTagsTextField> createState() => _CustomTagsTextFieldState();
 }
@@ -63,6 +65,15 @@ class _CustomTagsTextFieldState extends State<CustomTagsTextField> {
     });
   }
 
+  bool _checkRequired() {
+    if (widget.isRequired) {
+      if (_tags.isEmpty) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -70,6 +81,7 @@ class _CustomTagsTextFieldState extends State<CustomTagsTextField> {
       children: [
         // TextField for input
         CustomTextField(
+          validator: _checkRequired() ? Validation.general : null,
           suffixIcon: const Icon(Icons.more),
           focusNode: focusNode,
           hintText: widget.hintText,

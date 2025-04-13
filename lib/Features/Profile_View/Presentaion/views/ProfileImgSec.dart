@@ -19,8 +19,6 @@ class ProfileImgSec extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           Container(
-            // width: AppSizes.getWidth(120, context),
-            // height: AppSizes.getHeight(120, context),
             decoration: BoxDecoration(
                 color: ColorManager.primary.withValues(alpha: 0.3),
                 shape: BoxShape.circle),
@@ -31,7 +29,6 @@ class ProfileImgSec extends StatelessWidget {
               ),
             ),
           ),
-          // const ProfileEditIcon()
         ],
       ),
     );

@@ -2,10 +2,11 @@ import 'dart:developer';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:efaq_elhaya/Core/Helpers/validation.dart';
+import 'package:efaq_elhaya/Core/Utlis/Constatnts.dart';
 import 'package:efaq_elhaya/Core/widgets/CustomTextField.dart';
 import 'package:efaq_elhaya/Core/widgets/custom_date_Picker.dart';
 import 'package:efaq_elhaya/Core/widgets/custom_drop_down.dart';
-import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/manager/cubit/individual_survay_cubit.dart';
+import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/manager/individual_survay_cubit/individual_survay_cubit.dart';
 import 'package:efaq_elhaya/Features/New_indv_form_view/Presentaion/views/indv_nid_sec.dart';
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +52,7 @@ class IndvDetails extends StatelessWidget {
             initialSelection: cubit.indivFormModel.gender,
             isRequired: true,
             hint: LocaleKeys.gender.tr(),
-            items: const ["ذكر", "انثى"],
+            items: const [kMale, kFemale],
             getLabel: (gender) => gender,
             getValue: (gender) => gender,
             onChanged: (p0) {

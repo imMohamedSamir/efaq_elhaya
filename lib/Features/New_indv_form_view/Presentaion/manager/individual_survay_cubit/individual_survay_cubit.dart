@@ -6,6 +6,7 @@ import 'package:efaq_elhaya/Core/Utlis/ToastificationMethod.dart';
 import 'package:efaq_elhaya/Core/Utlis/custom_dialog.dart';
 import 'package:efaq_elhaya/Features/New_indv_form_view/data/models/indiv_form_model/address.dart';
 import 'package:efaq_elhaya/Features/New_indv_form_view/data/models/indiv_form_model/employment.dart';
+import 'package:efaq_elhaya/Features/New_indv_form_view/data/models/indiv_form_model/family_member.dart';
 import 'package:efaq_elhaya/Features/New_indv_form_view/data/models/indiv_form_model/indiv_form_model.dart';
 import 'package:efaq_elhaya/Features/New_indv_form_view/data/models/indiv_form_model/survey_source.dart';
 import 'package:efaq_elhaya/Features/New_indv_form_view/data/repo/indiv_repo.dart';
@@ -22,6 +23,7 @@ class IndividualSurvayCubit extends Cubit<IndividualSurvayState> {
   final IndivAddress address = IndivAddress();
   final IndivEmployment employment = IndivEmployment();
   final IndivSurveySource surveySource = IndivSurveySource();
+  final FamilyMember familyMember = FamilyMember();
   bool isPassport = false;
   void submit() async {
     if (formKey.currentState!.validate()) {
@@ -30,6 +32,7 @@ class IndividualSurvayCubit extends Cubit<IndividualSurvayState> {
       indivFormModel.address = address;
       indivFormModel.employment = employment;
       indivFormModel.surveySource = surveySource;
+      indivFormModel.familyMember = familyMember;
       _handleAgeAtRegisteration();
 
       _handleNid();
@@ -39,7 +42,7 @@ class IndividualSurvayCubit extends Cubit<IndividualSurvayState> {
           (fail) => CustomToastification.errorDialog(
               content: LocaleKeys.indvErrorMsg.tr()), (success) {
         emit(IndividualSurvaySuccess());
-        CustomDialog.IndivSuccess();
+        CustomDialog.SuccessForm();
       });
     } else {
       emit(IndividualSurvayFailure());

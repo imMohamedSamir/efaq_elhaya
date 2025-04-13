@@ -26,13 +26,13 @@ void main() async {
     EasyLocalization(
         useOnlyLangCode: true,
         saveLocale: true,
-        // startLocale: const Locale(kArabic),
+        startLocale: const Locale(kArabic),
         assetLoader: const CodegenLoader(),
         supportedLocales: const [Locale(kArabic), Locale(kEnglish)],
         path: kTranslationPath,
         fallbackLocale: const Locale(kArabic),
         child: DevicePreview(
-          enabled: kReleaseMode,
+          enabled: !kReleaseMode,
           builder: (context) => const EfaqApp(),
         )),
   );

@@ -15,6 +15,7 @@ class CustomDropDown<T> extends StatelessWidget {
     this.initialSelection,
     this.isRequired = false,
     this.isSearch = false,
+    this.enabled = true,
   });
 
   final String hint;
@@ -25,7 +26,7 @@ class CustomDropDown<T> extends StatelessWidget {
   final dynamic initialSelection;
   final bool isRequired;
   final bool isSearch;
-
+  final bool enabled;
   @override
   Widget build(BuildContext context) {
     return FormField<String>(
@@ -37,6 +38,7 @@ class CustomDropDown<T> extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             DropdownMenu(
+              enabled: enabled,
               initialSelection: initialSelection,
               enableFilter: true,
               focusNode: isSearch ? FocusNode() : null,

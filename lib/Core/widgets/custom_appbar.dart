@@ -6,7 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomAppbar {
-  static AppBar normal(BuildContext context, {required String title}) {
+  static AppBar normal(BuildContext context,
+      {required String title, Widget? action}) {
     return AppBar(
       title: Text(title,
           style:

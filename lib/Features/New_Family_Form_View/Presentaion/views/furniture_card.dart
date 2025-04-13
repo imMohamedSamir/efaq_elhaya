@@ -4,13 +4,17 @@ import 'package:flutter/material.dart';
 
 class FurnitureCard extends StatelessWidget {
   const FurnitureCard(
-      {super.key, required this.title, required this.onChanged});
+      {super.key,
+      required this.title,
+      required this.onChanged,
+      this.initialValue});
   final String title;
   final ValueChanged<int> onChanged;
+  final String? initialValue;
   @override
   Widget build(BuildContext context) {
     final ValueNotifier<bool> isExist = ValueNotifier<bool>(false);
-    final TextEditingController _controller = TextEditingController();
+    isExist.value = initialValue != null;
     return Row(
       children: [
         ValueListenableBuilder(
@@ -18,7 +22,7 @@ class FurnitureCard extends StatelessWidget {
           builder: (BuildContext context, bool value, Widget? child) {
             return Expanded(
                 child: CustomTextField(
-              controller: _controller,
+              initialValue: initialValue,
               enabled: value,
               label: title,
               hintText: "ادخل العدد",
@@ -31,13 +35,14 @@ class FurnitureCard extends StatelessWidget {
             ));
           },
         ),
-        CustomCheckBox(onChanged: (check) {
-          isExist.value = check ?? false;
-          if (!isExist.value) {
-            _controller.clear();
-            onChanged(0);
-          }
-        }),
+        CustomCheckBox(
+            value: initialValue != null,
+            onChanged: (check) {
+              isExist.value = check ?? false;
+              if (!isExist.value) {
+                onChanged(0);
+              }
+            }),
       ],
     );
   }
