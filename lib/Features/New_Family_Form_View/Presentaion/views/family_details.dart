@@ -1,8 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:efaq_elhaya/Core/Helpers/validation.dart';
+import 'package:efaq_elhaya/Core/Utlis/custom_dialog.dart';
 import 'package:efaq_elhaya/Core/widgets/CustomTextField.dart';
+import 'package:efaq_elhaya/Core/widgets/customButton.dart';
 import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/manager/family_cubit/family_cubit.dart';
-import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/views/family_head_sec.dart';
 import 'package:efaq_elhaya/Features/New_Family_Form_View/Presentaion/views/family_nid_sec.dart';
 import 'package:efaq_elhaya/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
@@ -44,6 +45,14 @@ class FamilyDetails extends StatelessWidget {
         ),
         const FamilyNidSec(),
         const Divider(thickness: 2),
+        // CustomButton(
+        //   text: "getpdf",
+        //   txtcolor: Colors.white,
+        //   btncolor: Colors.green,
+        //   onPressed: () {
+        //     CustomDialog.SuccessForm();
+        //   },
+        // )
         // const FamilyHeadSec()
       ],
     );

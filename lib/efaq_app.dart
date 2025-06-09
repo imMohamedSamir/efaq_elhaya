@@ -22,7 +22,7 @@ class EfaqApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(412, 917),
-      minTextAdapt: true,
+      minTextAdapt: false,
       child: ToastificationWrapper(
         child: MaterialApp(
           navigatorKey: navigatorKey,
@@ -32,8 +32,10 @@ class EfaqApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             scaffoldBackgroundColor: Colors.white,
+            dialogBackgroundColor: Colors.white,
             appBarTheme: const AppBarTheme(
-              backgroundColor: Colors.white,
+              surfaceTintColor: Colors.white,
+              color: Colors.white,
               elevation: 0,
               iconTheme: IconThemeData(color: Colors.black),
             ),

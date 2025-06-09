@@ -42,7 +42,7 @@
     "correctPhoneNumber": "يرجى إدخال رقم هاتف صحيح",
     "createFamilyForm": "إنشاء استمارة اسرة جديدة",
     "pendingForms": "الاستمارات المعلقة",
-    "phoneForm": "الاستمارات الهاتف",
+    "phoneForm": "استمارات الهاتف",
     "shareFamilyForm": "مشاركة استمارة الاسرة",
     "SubmitStoredForm": "ارسال الاستمارة المخزنة",
     "familyDetails":"بيانات العائلة",
@@ -186,7 +186,10 @@
     "Other":"اخرى",
     "ErrorLoading":"حدث خطأ فى تحميل البيانات ,الرجاء المحاولة لاحقا.",
     "otherimages":"صور اخرى",
-    "relationToHead":"العلاقة برب الاسرة"
+    "relationToHead":"العلاقة برب الاسرة",
+    "FamilyDeleteMsg":"هل تريد حذف هذه العائلة؟",
+    "IndividualDeleteMsg":"هل تريد حذف هذا الفرد؟",
+    "delete":"حذف"
 
 
 

@@ -7,13 +7,14 @@ class ApiServices {
   final Dio _dio;
   ApiServices(this._dio);
 
-  Future<dynamic> get({required String endPoint, String? token}) async {
+  Future<dynamic> get(
+      {required String endPoint, String? token, bool isPdf = false}) async {
     var response = await _dio.get('$_baseUrl$endPoint',
         options: Options(headers: {
           'Content-Type': 'application/json',
           'accept': 'text/plain',
           'Authorization': token == null ? null : 'Bearer $token'
-        }));
+        }, responseType: isPdf ? ResponseType.bytes : null));
     return response.data;
   }
 

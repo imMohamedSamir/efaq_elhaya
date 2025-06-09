@@ -58,7 +58,7 @@ class CodegenLoader extends AssetLoader{
   "correctPhoneNumber": "يرجى إدخال رقم هاتف صحيح",
   "createFamilyForm": "إنشاء استمارة اسرة جديدة",
   "pendingForms": "الاستمارات المعلقة",
-  "phoneForm": "الاستمارات الهاتف",
+  "phoneForm": "استمارات الهاتف",
   "shareFamilyForm": "مشاركة استمارة الاسرة",
   "SubmitStoredForm": "ارسال الاستمارة المخزنة",
   "familyDetails": "بيانات العائلة",
@@ -202,7 +202,10 @@ class CodegenLoader extends AssetLoader{
   "Other": "اخرى",
   "ErrorLoading": "حدث خطأ فى تحميل البيانات ,الرجاء المحاولة لاحقا.",
   "otherimages": "صور اخرى",
-  "relationToHead": "العلاقة برب الاسرة"
+  "relationToHead": "العلاقة برب الاسرة",
+  "FamilyDeleteMsg": "هل تريد حذف هذه العائلة؟",
+  "IndividualDeleteMsg": "هل تريد حذف هذا الفرد؟",
+  "delete": "حذف"
 };
 static const Map<String,dynamic> _en = {
   "SignIn": "Sign in",
@@ -392,7 +395,10 @@ static const Map<String,dynamic> _en = {
   "Other": "other",
   "ErrorLoading": "There was an error loading data, please try again later.",
   "otherimages": "Other Images",
-  "relationToHead": "Relation to Head"
+  "relationToHead": "Relation to Head",
+  "FamilyDeleteMsg": "Are you sure you want to delete this family?",
+  "IndividualDeleteMsg": "Are you sure you want to delete this individual?",
+  "delete": "Delete"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

@@ -186,7 +186,10 @@
     "Other":"other",
     "ErrorLoading":"There was an error loading data, please try again later.",
     "otherimages":"Other Images",
-    "relationToHead":"Relation to Head"  
+    "relationToHead":"Relation to Head"  ,
+    "FamilyDeleteMsg":"Are you sure you want to delete this family?",
+    "IndividualDeleteMsg":"Are you sure you want to delete this individual?",
+    "delete":"Delete"
         
       
       

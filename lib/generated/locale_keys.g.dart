@@ -191,5 +191,8 @@ abstract class  LocaleKeys {
   static const ErrorLoading = 'ErrorLoading';
   static const otherimages = 'otherimages';
   static const relationToHead = 'relationToHead';
+  static const FamilyDeleteMsg = 'FamilyDeleteMsg';
+  static const IndividualDeleteMsg = 'IndividualDeleteMsg';
+  static const delete = 'delete';
 
 }

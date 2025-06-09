@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:efaq_elhaya/Core/Helpers/share_service.dart';
 import 'package:efaq_elhaya/Core/theming/color_manager.dart';
@@ -10,8 +12,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 class IndvSuccessSec extends StatelessWidget {
-  const IndvSuccessSec({super.key});
-
+  const IndvSuccessSec({super.key, this.pdf});
+  final File? pdf;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,19 +36,19 @@ class IndvSuccessSec extends StatelessWidget {
           Gap(16.h),
           const IndvSuccessIcon(),
           Gap(40.h),
-          IndvSuccessBtn(
-            title: LocaleKeys.shareForm.tr(),
-            icon: Icons.share_rounded,
-            onTap: () async {
-              ShareService.share("text");
-            },
-          ),
-          Gap(16.h),
+          // IndvSuccessBtn(
+          //   title: LocaleKeys.shareForm.tr(),
+          //   icon: Icons.share_rounded,
+          //   onTap: () async {
+          //     ShareService.share("text");
+          //   },
+          // ),
+          // Gap(16.h),
           IndvSuccessBtn(
             title: LocaleKeys.sharePdf.tr(),
             icon: Icons.picture_as_pdf_rounded,
             onTap: () {
-              ShareService.shareFileFromUrl();
+              ShareService.shareFile(file: pdf!);
             },
           ),
         ],

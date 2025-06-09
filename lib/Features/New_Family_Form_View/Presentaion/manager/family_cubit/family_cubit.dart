@@ -2,7 +2,6 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:efaq_elhaya/Core/Utlis/ToastificationMethod.dart';
 import 'package:efaq_elhaya/Core/Utlis/custom_dialog.dart';
@@ -102,15 +101,25 @@ class FamilyCubit extends Cubit<FamilyState> {
       result.fold((fail) {
         emit(FamilyFailure());
         CustomToastification.errorDialog(content: LocaleKeys.indvErrorMsg.tr());
-      }, (success) {
-        CustomDialog.SuccessForm();
-        emit(FamilySuccess());
+      }, (id) {
+        _getPdf(id: id);
       });
     } else {
       emit(FamilyFailure());
       CustomToastification.errorDialog(
           content: LocaleKeys.genericValidation.tr());
     }
+  }
+
+  Future<void> _getPdf({required String id}) async {
+    final result = await _repo.getPdf(id: id);
+    result.fold((fail) {
+      emit(FamilyFailure());
+      CustomToastification.errorDialog(content: LocaleKeys.indvErrorMsg.tr());
+    }, (pdf) {
+      CustomDialog.SuccessForm(pdf: pdf);
+      emit(FamilySuccess());
+    });
   }
 
   // void _handlepdf() async {

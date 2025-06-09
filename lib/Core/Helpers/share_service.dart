@@ -17,8 +17,6 @@ abstract class ShareService {
     final result = await Share.shareXFiles([xfile]);
 
     if (result.status == ShareResultStatus.success) {
-      file.deleteSync();
-
       return true;
     } else {
       return false;

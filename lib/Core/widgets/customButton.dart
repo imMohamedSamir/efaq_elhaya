@@ -9,12 +9,12 @@ class CustomButton extends StatelessWidget {
       required this.text,
       required this.txtcolor,
       required this.btncolor,
-      this.isborder = false});
+      this.withBorder = true});
   final void Function()? onPressed;
   final String text;
   final Color txtcolor;
   final Color btncolor;
-  final bool isborder;
+  final bool withBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +23,14 @@ class CustomButton extends StatelessWidget {
       height: 54,
       child: ElevatedButton(
         style: ButtonStyle(
-            elevation: isborder ? WidgetStateProperty.all<double>(0) : null,
+            elevation: withBorder ? null : WidgetStateProperty.all<double>(2),
             shape: WidgetStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   side: BorderSide(
-                      color: isborder ? Colors.white : ColorManager.primary)),
+                      color: withBorder
+                          ? ColorManager.primary
+                          : Colors.transparent)),
             ),
             backgroundColor: WidgetStatePropertyAll<Color>(btncolor)),
         onPressed: onPressed,

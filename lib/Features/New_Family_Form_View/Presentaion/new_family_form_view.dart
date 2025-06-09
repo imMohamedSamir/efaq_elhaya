@@ -22,8 +22,7 @@ class NewFamilyFormView extends StatelessWidget {
         ),
         BlocProvider(
             create: (context) =>
-                FamilyLocationCubit(getIt.get<LocationService>())
-                  ..setLoc(context)),
+                FamilyLocationCubit(getIt.get<LocationService>())),
       ],
       child: Scaffold(
         appBar: CustomAppbar.normal(context,

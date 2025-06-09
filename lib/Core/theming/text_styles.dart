@@ -52,7 +52,7 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
   );
   static TextStyle semiBold16 = TextStyle(
-    color: ColorManager.primary,
+    color: ColorManager.secondary,
     fontSize: 16.sp,
     fontFamily: 'Poppins',
     fontWeight: FontWeight.w600,

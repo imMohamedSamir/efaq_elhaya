@@ -33,7 +33,7 @@ class LocationMsgWidget extends StatelessWidget {
           ),
           CustomButton(
             text: LocaleKeys.cancel.tr(),
-            isborder: true,
+            withBorder: true,
             txtcolor: Colors.red,
             btncolor: Colors.white,
             onPressed: () {

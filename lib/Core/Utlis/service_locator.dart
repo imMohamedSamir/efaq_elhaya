@@ -5,6 +5,7 @@ import 'package:efaq_elhaya/Features/Auth_View/data/repo/auth_repo_impl.dart';
 import 'package:efaq_elhaya/Features/Home_View/data/repo/home_repo_impl.dart';
 import 'package:efaq_elhaya/Features/New_Family_Form_View/data/repo/family_repo_impl.dart';
 import 'package:efaq_elhaya/Features/New_indv_form_view/data/repo/indiv_repo_impl.dart';
+import 'package:efaq_elhaya/Features/familyFormsView/data/repo/families_repo_impl.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -19,5 +20,7 @@ void setupServiceLocator() {
       HomeRepoImpl(apiServices: getIt.get<ApiServices>()));
   getIt.registerSingleton<FamilyRepoImpl>(
       FamilyRepoImpl(apiServices: getIt.get<ApiServices>()));
+  getIt.registerSingleton<FamiliesRepoImpl>(
+      FamiliesRepoImpl(apiServices: getIt.get<ApiServices>()));
   getIt.registerSingleton<LocationService>(LocationService());
 }

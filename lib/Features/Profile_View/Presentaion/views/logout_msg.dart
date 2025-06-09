@@ -31,7 +31,7 @@ class LogoutMsg extends StatelessWidget {
             children: [
               Expanded(
                 child: CustomButton(
-                  isborder: true,
+                  withBorder: true,
                   text: LocaleKeys.back.tr(),
                   txtcolor: Colors.blueGrey,
                   btncolor: Colors.white,
@@ -43,7 +43,7 @@ class LogoutMsg extends StatelessWidget {
               const Gap(8),
               Expanded(
                 child: CustomButton(
-                  isborder: true,
+                  withBorder: true,
                   text: LocaleKeys.Logout.tr(),
                   txtcolor: Colors.white,
                   btncolor: Colors.redAccent,
