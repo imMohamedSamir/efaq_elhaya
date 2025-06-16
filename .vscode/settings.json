@@ -1,0 +1,17 @@
+{
+    "emeraldwalk.runonsave": {
+    "message": "don!",
+    "messageAfter": "",
+    "showElapsed": true,
+    "commands": [
+        {
+        "match": "\\.json$",
+        "notMatch": "\\.vscode/.*$",
+"cmd": "flutter pub run easy_localization:generate --source-dir ./assets/translations && flutter pub run easy_localization:generate --source-dir ./assets/translations -f keys -o locale_keys.g.dart",
+        } 
+    ] 
+    },
+   
+    "cmake.sourceDirectory": "E:/work/flutter/efaq_elhaya/linux"
+    
+}

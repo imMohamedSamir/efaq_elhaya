@@ -1,7 +1,8 @@
-import 'package:intl/intl.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:efaq_elhaya/main.dart';
 
 abstract class AppLang {
   static bool isArabic() {
-    return Intl.getCurrentLocale() == "ar";
+    return navigatorKey.currentContext!.locale.languageCode == "ar";
   }
 }
